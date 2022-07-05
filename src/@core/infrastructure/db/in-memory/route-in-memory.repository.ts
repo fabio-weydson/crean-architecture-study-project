@@ -1,5 +1,5 @@
-import {RouteRepositoryInterface} from "../domain/route.repository";
-import {Route} from "../domain/route.entity";
+import {RouteRepositoryInterface} from "../../../domain/route.repository";
+import {Route} from "../../../domain/route.entity";
 
 
 export class RouteInMemoryRepository implements RouteRepositoryInterface {
@@ -18,3 +18,5 @@ export class RouteInMemoryRepository implements RouteRepositoryInterface {
         return route;
     }
 }
+//Active Record - Registro Ativo (Squelize, Prisma, Eloquent, Django ORM)
+//Data Mapper - Mapeador de dados

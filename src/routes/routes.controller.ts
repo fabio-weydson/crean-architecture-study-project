@@ -7,18 +7,24 @@ export class RoutesController {
   constructor(private readonly routesService: RoutesService) {}
 
   @Post()
-  create(@Body() createRouteDto: CreateRouteDto) {
-    return this.routesService.create(createRouteDto);
+  async create(@Body() createRouteDto: CreateRouteDto) {
+    return await this.routesService.create(createRouteDto);
   }
 
   @Get()
-  findAll() {
-    return this.routesService.findAll();
+  async findAll() {
+    const res = await this.routesService.findAll();
+    if(!res.length) {
+        return {
+            message: 'No routes found'
+        }
+    }
+    return res
   }
 
   @Get(':id')
-  findOne(@Param('id') id: string) {
-    return this.routesService.findOne(id);
+  async findOne(@Param('id') id: string) {
+    return await this.routesService.findOne(id);
   }
 
   /*
